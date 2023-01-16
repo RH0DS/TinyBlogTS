@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import BlogPost from './Components/Blogpost/BlogPost';
+import { IBlogPostdata } from './Interfaces/IBlogPostData';
+
+
+
 
 function App() {
+  const [blogListData, setBlogListData] = useState<IBlogPostdata[]>([]);
+    
+  useEffect(()=> {
+  
+    const getData = async () => {
+      const response = await fetch('https://dummyjson.com/posts');
+      const BlogPostsResult = await response.json();
+      setBlogListData(BlogPostsResult.posts);
+    }
+    getData();
+  },[]);
+
+console.log(blogListData);
+  // </h1><ToggleButton puppie={puppie}/>
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>there are {blogListData.length} blogs registered</h1>
+            {blogListData.map( blog => 
+            <ul key={blog.id}> <BlogPost blogPost={blog}/>  <br/><br/><br/> </ul>
+                
+            )}
     </div>
   );
 }
