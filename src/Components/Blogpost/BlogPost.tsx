@@ -1,21 +1,26 @@
 import { useState } from "react";
 import { IBlogPostdata } from "../../Interfaces/IBlogPostData";
+import './BlogPost.css';
 
-
-interface IBlogPostProps{
-    blogPost: IBlogPostdata,
-    filtertag: string 
-    
+export interface IBlogPostProps{
+  blogPost: IBlogPostdata, 
 }
+
 const BlogPost = ({ blogPost }: IBlogPostProps) => {
+  const [toggleBlog, setToggleBlog] = useState(false);
+
 
     return (
-      <div  key={blogPost.id}>
-        <div>
-          Read about:  {blogPost.title}
-        </div>
-        {<div>{blogPost.reactions} users have reacted to this post<br/>
-        <br/>{blogPost.body} <br/> <br/> {blogPost.tags.map (tag => <span> #{tag} </span>)}</div>}
+      <div className="blogPost">
+         <button className="blogPostBtn" onClick={() => setToggleBlog(!toggleBlog)}>
+          {blogPost.title}
+        </button>
+        {toggleBlog && 
+          <article >
+              <text className="userReaction">{blogPost.reactions} users have reacted to this post </text>
+              <p className="blogTextBody">{blogPost.body}</p> 
+              {blogPost.tags.map (tag => <span key={tag}> #{tag} </span>)}
+          </article>}
       </div>
     );}
 

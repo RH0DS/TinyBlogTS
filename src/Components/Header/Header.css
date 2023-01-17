@@ -1,0 +1,11 @@
+header{
+background-image: url('../Assets/monstera-green-leaves-nature-wallpaper.jpg');;
+    display: flex;
+    justify-content: center;
+    background-size:contain;
+    color: white;
+    text-align: center;
+    border: 2px solid;
+    
+
+}
