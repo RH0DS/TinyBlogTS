@@ -1,37 +1,23 @@
 
 .blogSectionBtn {
-background-color: #4CAF50;
-border: none;
-color: white;
-text-align: center;
-text-decoration: none;
-font-size: 30px;
-display: block;  
-margin: 20px 20px;
-cursor:help;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    display: block;  
+    margin: 20px 20px;
+    cursor:help;
     text-transform: uppercase;
     height: 80px;
     width: 180px;
-    border-radius: 25px;
-   
+    border-radius: 25px;   
 }
 
-
-
-@media (min-width: 768px) {
+@media (min-width: 768px) {    
 .blogSectionBtn {
-display: inline-block; 
+    display: inline-block; 
 }
 }
 
-@media (min-width: 992px) {
-.blogSectionBtn {
-font-size: 20px; 
-}
-}
-
-@media (min-width: 1200px) {
-.blogSectionBtn {
-padding: 20px 40px; 
-}
-}

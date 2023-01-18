@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IBlogPostdata } from "../../Interfaces/IBlogPostData";
+import { IBlogPostdata } from "../Interfaces/IBlogPostData";
 import './BlogPost.css';
 
 export interface IBlogPostProps{
@@ -9,19 +9,19 @@ export interface IBlogPostProps{
 const BlogPost = ({ blogPost }: IBlogPostProps) => {
   const [toggleBlog, setToggleBlog] = useState(false);
 
+  return (
+    <div className="blogPost">
+      <button className="blogPostBtn" onClick={() => setToggleBlog(!toggleBlog)}>
+        {blogPost.title}
+      </button>
+      
+    {toggleBlog && 
+      <article >
+        <h4 className="userReaction">{blogPost.reactions} users have reacted to this post </h4>
+        <p className="blogTextBody">{blogPost.body}</p> 
+        {blogPost.tags.map (tag => <span key={tag}> #{tag} </span>)}
+      </article>}
+    </div>
+  );}
 
-    return (
-      <div className="blogPost">
-         <button className="blogPostBtn" onClick={() => setToggleBlog(!toggleBlog)}>
-          {blogPost.title}
-        </button>
-        {toggleBlog && 
-          <article >
-              <text className="userReaction">{blogPost.reactions} users have reacted to this post </text>
-              <p className="blogTextBody">{blogPost.body}</p> 
-              {blogPost.tags.map (tag => <span key={tag}> #{tag} </span>)}
-          </article>}
-      </div>
-    );}
-
-    export default BlogPost;
+export default BlogPost;
