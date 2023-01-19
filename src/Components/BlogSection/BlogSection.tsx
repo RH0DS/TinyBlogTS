@@ -4,12 +4,12 @@ import BlogPost from "../Blogpost/BlogPost"
 import './BlogSection.css';
 
 
-export interface IBlogSectionProps{
+/* export interface IBlogSectionProps{
   blogSectionData: IBlogPostdata[],
   filterTag: string,    
-  }
+  } */
 
-const BlogSection = ({ blogSectionData, filterTag}: IBlogSectionProps) => {
+const BlogSection = ({ blogSectionData, filterTag}: {blogSectionData: IBlogPostdata[], filterTag: string }) => {
   
   const [toggleElement, setToggleElement] = useState(false);
   const filteredBlogs = blogSectionData.filter((post => post.tags.includes(filterTag)))
