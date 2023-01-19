@@ -7,4 +7,3 @@ It should display 5 different sections. These are based on the “tags” value 
 The sections should be clearly separated from each other, and it should be clear which one is which
 You should have a dropdown for each section. So you can show and hide the posts for each section
 Everything should be in React with TypeScript!
-
