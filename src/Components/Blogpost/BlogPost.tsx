@@ -2,11 +2,11 @@ import { useState } from "react";
 import { IBlogPostdata } from "../Interfaces/IBlogPostData";
 import './BlogPost.css';
 
-export interface IBlogPostProps{
+/* export interface IBlogPostProps{
   blogPost: IBlogPostdata, 
-}
+} */
 
-const BlogPost = ({ blogPost }: IBlogPostProps) => {
+const BlogPost = ({ blogPost }: {blogPost: IBlogPostdata }) => {
   const [toggleBlog, setToggleBlog] = useState(false);
 
   return (
